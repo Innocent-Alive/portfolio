@@ -98,7 +98,7 @@ const Skills = () => {
           {skillCategories.map((category) => (
             <div
               key={category.id}
-              className="bg-white/5 p-6 rounded-lg shadow-lg"
+              className="bg-white p-6 rounded-lg shadow-lg"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">

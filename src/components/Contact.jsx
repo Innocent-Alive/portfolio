@@ -92,7 +92,7 @@ const Contact = () => {
                   </svg>
                   <div>
                     <h4 className="text-lg font-medium">Email</h4>
-                    <p className="text-gray-600">your.email@example.com</p>
+                    <p className="text-gray-600">abhay744das@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -111,7 +111,7 @@ const Contact = () => {
                   </svg>
                   <div>
                     <h4 className="text-lg font-medium">Phone</h4>
-                    <p className="text-gray-600">+1 234 567 890</p>
+                    <p className="text-gray-600">+91 8169805273</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -136,7 +136,9 @@ const Contact = () => {
                   </svg>
                   <div>
                     <h4 className="text-lg font-medium">Location</h4>
-                    <p className="text-gray-600">Your City, Country</p>
+                    <p className="text-gray-600">
+                      Kandivali West, Mumbai, India
+                    </p>
                   </div>
                 </div>
               </div>

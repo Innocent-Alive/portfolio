@@ -5,9 +5,9 @@ const Experience = () => {
     {
       id: 1,
       company: "Inkstall Edutech Pvt. Ltd.",
-      position: "Senior Full Stack Developer",
-      duration: "2022 - Present",
-      location: "New York, NY",
+      position: "Full Stack Developer",
+      duration: "2025 - Present",
+      location: "Goregaon West, Mumbai, India",
       description:
         "Lead developer in building scalable web applications using React and Node.js. Mentored junior developers and implemented CI/CD pipelines.",
       highlights: [
@@ -20,28 +20,14 @@ const Experience = () => {
       id: 2,
       company: "Shree Kalam Academy",
       position: "Full Stack Developer",
-      duration: "2020 - 2022",
-      location: "San Francisco, CA",
+      duration: "2024 - 2025",
+      location: "Kandivali West, Mumbai, India",
       description:
         "Worked on developing and maintaining web applications using modern JavaScript frameworks.",
       highlights: [
         "Built a responsive e-commerce platform using React and Redux",
         "Implemented RESTful APIs with Node.js and Express",
         "Created automated testing suites using Jest and Cypress",
-      ],
-    },
-    {
-      id: 3,
-      company: "Web Masters",
-      position: "Junior Developer",
-      duration: "2018 - 2020",
-      location: "Los Angeles, CA",
-      description:
-        "Started my journey in web development, learning and implementing modern web technologies.",
-      highlights: [
-        "Developed responsive websites using HTML, CSS, and JavaScript",
-        "Implemented basic backend functionality with Node.js",
-        "Learned version control using Git and GitHub",
       ],
     },
   ];
