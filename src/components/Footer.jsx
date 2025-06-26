@@ -52,36 +52,72 @@ const Footer = () => {
               Quick Links
             </motion.h3>
             <motion.ul className="space-y-2" variants={fadeIn}>
-              <motion.li variants={fadeInUp}>
+              <motion.li
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <a
                   href="#about"
-                  className="text-gray-600 hover:text-primary transition-colors duration-200"
+                  className="relative text-gray-600 hover:text-primary transition-all duration-300 group"
                 >
-                  About
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    →
+                  </span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">
+                    About
+                  </span>
                 </a>
               </motion.li>
-              <motion.li variants={fadeInUp}>
+              <motion.li
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <a
                   href="#projects"
-                  className="text-gray-600 hover:text-primary transition-colors duration-200"
+                  className="relative text-gray-600 hover:text-primary transition-all duration-300 group"
                 >
-                  Projects
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    →
+                  </span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">
+                    Projects
+                  </span>
                 </a>
               </motion.li>
-              <motion.li variants={fadeInUp}>
+              <motion.li
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <a
+                  href="#skills"
+                  className="relative text-gray-600 hover:text-primary transition-all duration-300 group"
+                >
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    →
+                  </span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">
+                    Skills
+                  </span>
+                </a>
+              </motion.li>
+              <motion.li
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <a
                   href="#contact"
-                  className="text-gray-600 hover:text-primary transition-colors duration-200"
+                  className="relative text-gray-600 hover:text-primary transition-all duration-300 group"
                 >
-                  Contact
-                </a>
-              </motion.li>
-              <motion.li variants={fadeInUp}>
-                <a
-                  href="#blog"
-                  className="text-gray-600 hover:text-primary transition-colors duration-200"
-                >
-                  Blog
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    →
+                  </span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">
+                    Contact
+                  </span>
                 </a>
               </motion.li>
             </motion.ul>
@@ -96,20 +132,38 @@ const Footer = () => {
               Contact
             </motion.h3>
             <motion.ul className="space-y-2" variants={fadeIn}>
-              <motion.li variants={fadeInUp}>
+              <motion.li
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <a
                   href="mailto:abhay744das@gmail.com"
-                  className="text-gray-600 hover:text-primary transition-colors duration-200"
+                  className="relative text-gray-600 hover:text-primary transition-all duration-300 group"
                 >
-                  Email: abhay744das@gmail.com
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    →
+                  </span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">
+                    Email: abhay744das@gmail.com
+                  </span>
                 </a>
               </motion.li>
-              <motion.li variants={fadeInUp}>
+              <motion.li
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <a
                   href="tel:+918169805273"
-                  className="text-gray-600 hover:text-primary transition-colors duration-200"
+                  className="relative text-gray-600 hover:text-primary transition-all duration-300 group"
                 >
-                  Phone: +91 8169805273
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    →
+                  </span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">
+                    Phone: +91 8169805273
+                  </span>
                 </a>
               </motion.li>
             </motion.ul>
@@ -119,7 +173,7 @@ const Footer = () => {
       {/* Floating Back to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className="none md:fixed bottom-6 right-6 z-50 p-2 bg-primary rounded-full shadow-lg hover:bg-primary/90 transition-colors duration-200"
+        className="hidden lg:block lg:fixed bottom-6 right-6 z-50 p-2 bg-primary rounded-full shadow-lg hover:bg-primary/90 transition-colors duration-200"
         title="Scroll to Top"
         variants={fadeInUp}
       >

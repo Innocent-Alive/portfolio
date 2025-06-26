@@ -1,4 +1,15 @@
-import { FiUser } from "react-icons/fi";
+import {
+  FiUser,
+  FiDownload,
+  FiGlobe,
+  FiSmartphone,
+  FiServer,
+  FiDatabase,
+  FiLayers,
+  FiCode,
+  FiCloud,
+  FiCheck,
+} from "react-icons/fi";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -82,62 +93,126 @@ const About = () => (
           </motion.div>
 
           {/* Bio */}
-          <motion.p className="text-text mb-8" variants={fadeInUp}>
-            I am a passionate Full Stack Developer with a keen interest in
-            creating innovative web applications. With over 5 years of
-            experience in the tech industry, I specialize in building scalable
-            and maintainable applications using modern technologies.
-          </motion.p>
+          <motion.div variants={fadeInUp} className="space-y-6">
+            <p className="text-text">
+              I am a passionate Full Stack Developer with a keen interest in
+              creating innovative web applications. With over 5 years of
+              experience in the tech industry, I specialize in building scalable
+              and maintainable applications using modern technologies.
+            </p>
 
-          {/* Services */}
+            {/* View Resume Button */}
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FiDownload className="mr-2" />
+              View My Resume
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+      {/* Services */}
+      <motion.div className="mt-10 space-y-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={fadeIn}
+        >
+          {/* Web Development */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-            variants={fadeIn}
+            className="bg-white/5 md:p-6 p-2 rounded-xl hover:shadow-lg transition-all duration-300 border border-white/5 hover:border-primary/20"
+            whileHover={{ y: -5, scale: 1.02 }}
+            variants={fadeInUp}
           >
-            <motion.div
-              className="bg-white/5 p-6 rounded-lg"
+            <motion.div className="bg-primary/10 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+              <FiGlobe className="text-primary text-xl" />
+            </motion.div>
+            <motion.h4
+              className="text-xl font-semibold text-primary mb-4"
               variants={fadeInUp}
             >
-              <motion.h4
-                className="text-xl font-semibold text-primary mb-4"
-                variants={fadeInUp}
-              >
-                Web Development
-              </motion.h4>
-              <motion.ul className="space-y-2 text-text" variants={fadeIn}>
-                <motion.li variants={fadeInUp}>
-                  • Modern web applications using React, Vue, and Angular
-                </motion.li>
-                <motion.li variants={fadeInUp}>
-                  • Responsive design and mobile-first approach
-                </motion.li>
-                <motion.li variants={fadeInUp}>
-                  • Performance optimization and SEO
-                </motion.li>
-              </motion.ul>
+              Web Development
+            </motion.h4>
+            <motion.ul className="space-y-3 text-text" variants={fadeIn}>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Full-stack web applications with modern frameworks</span>
+              </motion.li>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Progressive Web Apps (PWAs) & Responsive Design</span>
+              </motion.li>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Server-side rendering & SEO optimization</span>
+              </motion.li>
+            </motion.ul>
+          </motion.div>
+
+          {/* Mobile Development */}
+          <motion.div
+            className="bg-white/5 md:p-6 p-2 rounded-xl hover:shadow-lg transition-all duration-300 border border-white/5 hover:border-primary/20"
+            whileHover={{ y: -5, scale: 1.02 }}
+            variants={fadeInUp}
+          >
+            <motion.div className="bg-primary/10 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+              <FiSmartphone className="text-primary text-xl" />
             </motion.div>
-            <motion.div
-              className="bg-white/5 p-6 rounded-lg"
+            <motion.h4
+              className="text-xl font-semibold text-primary mb-4"
               variants={fadeInUp}
             >
-              <motion.h4
-                className="text-xl font-semibold text-primary mb-4"
-                variants={fadeInUp}
-              >
-                Backend Development
-              </motion.h4>
-              <motion.ul className="space-y-2 text-text" variants={fadeIn}>
-                <motion.li variants={fadeInUp}>
-                  • RESTful API development
-                </motion.li>
-                <motion.li variants={fadeInUp}>
-                  • Database design and optimization
-                </motion.li>
-                <motion.li variants={fadeInUp}>
-                  • Security implementation
-                </motion.li>
-              </motion.ul>
+              Mobile Development
+            </motion.h4>
+            <motion.ul className="space-y-3 text-text" variants={fadeIn}>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Cross-platform apps with React Native</span>
+              </motion.li>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Native Android development with Kotlin</span>
+              </motion.li>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Mobile UI/UX design & optimization</span>
+              </motion.li>
+            </motion.ul>
+          </motion.div>
+
+          {/* Backend Development */}
+          <motion.div
+            className="bg-white/5 md:p-6 p-2 rounded-xl hover:shadow-lg transition-all duration-300 border border-white/5 hover:border-primary/20"
+            whileHover={{ y: -5, scale: 1.02 }}
+            variants={fadeInUp}
+          >
+            <motion.div className="bg-primary/10 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+              <FiServer className="text-primary text-xl" />
             </motion.div>
+            <motion.h4
+              className="text-xl font-semibold text-primary mb-4"
+              variants={fadeInUp}
+            >
+              Backend Development
+            </motion.h4>
+            <motion.ul className="space-y-3 text-text" variants={fadeIn}>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>RESTful & GraphQL API development</span>
+              </motion.li>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Microservices architecture & Serverless</span>
+              </motion.li>
+              <motion.li className="flex items-start" variants={fadeInUp}>
+                <FiCheck className="text-secondary mt-1 mr-2 flex-shrink-0" />
+                <span>Authentication & Authorization systems</span>
+              </motion.li>
+            </motion.ul>
           </motion.div>
         </motion.div>
       </motion.div>

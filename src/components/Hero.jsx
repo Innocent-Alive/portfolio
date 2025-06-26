@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FiSend } from "react-icons/fi";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -81,6 +82,19 @@ const Hero = () => {
             >
               <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm4-9.75c0-.414-.336-.75-.75-.75h-2.5V7.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75V9.5h-2.5c-.414 0-.75.336-.75.75s.336.75.75.75h2.5v2.5c0 .414.336.75.75.75s.75-.336.75-.75V11h2.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z" />
             </svg>
+          </motion.a>
+        </motion.div>
+
+        {/* Hire Now Button - Only visible on tablet and mobile */}
+        <motion.div className="block lg:hidden mt-16" variants={fadeIn}>
+          <motion.a
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-300 font-medium text-lg"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FiSend className="w-5 h-5" />
+            <span>Hire Now</span>
           </motion.a>
         </motion.div>
       </motion.div>
