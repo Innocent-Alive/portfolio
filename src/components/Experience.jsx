@@ -5,7 +5,7 @@ const Experience = () => {
     {
       id: 1,
       company: "Inkstall Edutech Pvt. Ltd.",
-      position: "Full Stack Developer",
+      position: "Software Developera",
       duration: "2025 - Present",
       location: "Goregaon West, Mumbai, India",
       description:
@@ -19,7 +19,7 @@ const Experience = () => {
     {
       id: 2,
       company: "Shree Kalam Academy",
-      position: "Full Stack Developer",
+      position: "Full Stack Developer Intern",
       duration: "2024 - 2025",
       location: "Kandivali West, Mumbai, India",
       description:

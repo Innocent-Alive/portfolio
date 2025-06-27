@@ -91,7 +91,7 @@ const Contact = () => {
       id: 2,
       name: "LinkedIn",
       icon: FaLinkedin,
-      url: "https://linkedin.com/in/abhay744das",
+      url: "https://www.linkedin.com/in/innocent-alive/",
     },
     {
       id: 3,
@@ -103,7 +103,7 @@ const Contact = () => {
       id: 4,
       name: "Instagram",
       icon: FaInstagram,
-      url: "https://instagram.com/abhay744das",
+      url: "https://www.instagram.com/innocent_alive/",
     },
     {
       id: 5,
@@ -115,7 +115,7 @@ const Contact = () => {
       id: 6,
       name: "Twitter",
       icon: FaTwitter,
-      url: "https://twitter.com/abhay744das",
+      url: "https://x.com/Innocent_Alive_",
     },
   ];
 

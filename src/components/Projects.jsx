@@ -1,30 +1,32 @@
 import { MdOutlineWorkspaces } from "react-icons/md";
-
+import project1 from "../assets/ecostore.png";
+import project2 from "../assets/microsoft.png";
+import project3 from "../assets/calculator.png";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "EcoStore Web App",
       description:
         "A full-stack e-commerce platform with user authentication, product management, and payment integration.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
-      link: "#",
+      tech: ["React", "Node.js", "MongoDB", "Tailwind"],
+      image: project1,
+      link: "https://ecostoreonline.onrender.com/",
     },
     {
-      title: "Portfolio Website",
+      title: "Microsoft Clone",
       description:
         "A modern portfolio website built with React and Tailwind CSS, featuring a responsive design and smooth animations.",
-      tech: ["React", "Tailwind CSS", "Vite"],
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
-      link: "#",
+      tech: ["HTML", "CSS", "JavaScript"],
+      image: project2,
+      link: "https://microsoft-clone-steel-delta.vercel.app/",
     },
     {
-      title: "Task Management App",
+      title: "Android Calculator App",
       description:
         "A real-time task management application with drag-and-drop functionality and team collaboration features.",
-      tech: ["React", "Firebase", "Material-UI"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-      link: "#",
+      tech: ["Java", "Android", "XML"],
+      image: project3,
+      link: "https://github.com/Innocent-Alive/Android_Calculator",
     },
   ];
 
@@ -55,7 +57,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300 saturate-0 group-hover:saturate-100"
                 />
               </div>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FiSend } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import heroImage from '../assets/heroImage.png';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -23,7 +24,10 @@ const Hero = () => {
       viewport={{ once: true }}
     >
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvZGluZ3xlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center opacity-20" />
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20" 
+        style={{ backgroundImage: `url(${heroImage})` }}
+      />
 
       {/* Content */}
       <motion.div className="relative text-center px-4" variants={fadeIn}>

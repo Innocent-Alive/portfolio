@@ -57,15 +57,14 @@ const About = () => (
       >
         {/* Profile Image */}
         <motion.div className="relative h-[500px] w-full" variants={fadeInUp}>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-background/5 rounded-xl overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-background/10 to-background/5 rounded-xl overflow-hidden">
             <motion.img
-              // src="https://images.unsplash.com/photo-1526925539332-aa3b66e35444?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRldmVsb3BlcnxlbnwwfHwwfHx8MA%3D%3D"
               src={profileImage}
               alt="Profile"
-              className="w-full h-full object-cover "
+              className="w-full h-full object-cover saturate-0"
               variants={fadeInUp}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
           </div>
         </motion.div>
 
