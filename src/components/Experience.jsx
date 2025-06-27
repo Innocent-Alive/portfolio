@@ -5,7 +5,7 @@ const Experience = () => {
     {
       id: 1,
       company: "Inkstall Edutech Pvt. Ltd.",
-      position: "Software Developera",
+      position: "Software Developer",
       duration: "2025 - Present",
       location: "Goregaon West, Mumbai, India",
       description:
