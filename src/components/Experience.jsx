@@ -36,8 +36,9 @@ const Experience = () => {
     <section id="experience" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary flex items-center justify-center gap-4 mb-4">
-            <FiBriefcase className="w-10 h-10 text-primary" /> Work Experience
+          <h2 className="text-4xl font-header text-primary flex items-center justify-center gap-4 mb-4">
+            <FiBriefcase className="w-10 h-10 text-primary" />{" "}
+            <span className="hidden sm:inline">Work</span> Experience
           </h2>
           <p className="text-text max-w-2xl mx-auto">
             A journey of growth and learning through various roles and

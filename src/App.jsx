@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 font-body">
       <Navbar />
       <Hero />
       <About />

@@ -33,9 +33,9 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary flex items-center justify-center mb-4 gap-4">
-            <MdOutlineWorkspaces className="w-10 h-10 text-primary" /> My
-            Projects
+          <h2 className="text-4xl font-header text-primary flex items-center justify-center mb-4 gap-4">
+            <MdOutlineWorkspaces className="w-10 h-10 text-primary" />
+            <span className="hidden sm:inline">My</span> Projects
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and

@@ -9,7 +9,11 @@ import {
   FiCode,
   FiCloud,
   FiCheck,
+  FiMapPin,
+  FiMail,
+  FiPhone,
 } from "react-icons/fi";
+import profileImage from "../assets/abhay.jpg";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -36,7 +40,7 @@ const About = () => (
       {/* Section Title */}
       <motion.div className="text-center mb-16" variants={fadeIn}>
         <motion.h2
-          className="text-4xl font-bold text-primary flex items-center justify-center mb-4 gap-4"
+          className="text-4xl font-header text-primary flex items-center justify-center mb-4 gap-4"
           variants={fadeInUp}
         >
           <FiUser className="w-10 h-10 text-primary" /> About Me
@@ -55,7 +59,8 @@ const About = () => (
         <motion.div className="relative h-[500px] w-full" variants={fadeInUp}>
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-background/5 rounded-xl overflow-hidden">
             <motion.img
-              src="https://images.unsplash.com/photo-1526925539332-aa3b66e35444?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRldmVsb3BlcnxlbnwwfHwwfHx8MA%3D%3D"
+              // src="https://images.unsplash.com/photo-1526925539332-aa3b66e35444?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRldmVsb3BlcnxlbnwwfHwwfHx8MA%3D%3D"
+              src={profileImage}
               alt="Profile"
               className="w-full h-full object-cover "
               variants={fadeInUp}
@@ -79,15 +84,15 @@ const About = () => (
           {/* Contact Info */}
           <motion.div className="space-y-6 mb-8" variants={fadeIn}>
             <motion.div className="flex items-center gap-4" variants={fadeInUp}>
-              <span className="text-primary">📍</span>
+              <FiMapPin className="w-5 h-5 text-primary" />
               <span className="text-text">Mumbai, India</span>
             </motion.div>
             <motion.div className="flex items-center gap-4" variants={fadeInUp}>
-              <span className="text-primary">📧</span>
+              <FiMail className="w-5 h-5 text-primary" />
               <span className="text-text">abhay744das@gmail.com</span>
             </motion.div>
             <motion.div className="flex items-center gap-4" variants={fadeInUp}>
-              <span className="text-primary">📞</span>
+              <FiPhone className="w-5 h-5 text-primary" />
               <span className="text-text">+91 8169805273</span>
             </motion.div>
           </motion.div>
@@ -103,15 +108,17 @@ const About = () => (
 
             {/* View Resume Button */}
             <motion.a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              href="/Abhay_Kumar_Das_Resume.pdf"
+              download="Abhay_Kumar_Das_Resume.pdf"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors duration-300"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 5px 15px -5px rgba(99, 102, 241, 0.5)",
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               <FiDownload className="mr-2" />
-              View My Resume
+              Checkout My Resume
             </motion.a>
           </motion.div>
         </motion.div>

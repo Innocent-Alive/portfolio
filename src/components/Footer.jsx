@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logo from "../assets/logoBlack.png";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -27,16 +28,19 @@ const Footer = () => {
       whileInView="animate"
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 pb-20 pt-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
-          <motion.div className="space-y-4" variants={fadeIn}>
-            <motion.h3
-              className="text-xl font-semibold text-primary mb-4"
-              variants={fadeInUp}
-            >
-              About Me
-            </motion.h3>
+          <motion.div className="space-y-2" variants={fadeIn}>
+            <div className="flex items-start flex-col gap-1">
+              <img src={logo} alt="Logo" className="h-20 w-auto" />
+              <motion.h3
+                className="text-xl font-header text-primary"
+                variants={fadeInUp}
+              >
+                About Me
+              </motion.h3>
+            </div>
             <motion.p className="text-gray-600" variants={fadeInUp}>
               Passionate Full Stack Developer with expertise in building
               scalable and efficient web applications.
@@ -46,7 +50,7 @@ const Footer = () => {
           {/* Quick Links */}
           <motion.div className="space-y-4" variants={fadeIn}>
             <motion.h3
-              className="text-xl font-semibold text-primary mb-4"
+              className="text-lg font-header text-primary mb-4"
               variants={fadeInUp}
             >
               Quick Links
@@ -126,7 +130,7 @@ const Footer = () => {
           {/* Contact */}
           <motion.div className="space-y-4" variants={fadeIn}>
             <motion.h3
-              className="text-xl font-semibold text-primary mb-4"
+              className="text-lge font-header text-primary mb-4"
               variants={fadeInUp}
             >
               Contact

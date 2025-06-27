@@ -14,9 +14,6 @@ const Skills = () => {
       icon: FiLayout,
       skills: [
         "React.js",
-        "Next.js",
-        "Vue.js",
-        "Angular",
         "HTML5",
         "CSS3",
         "JavaScript",
@@ -24,37 +21,30 @@ const Skills = () => {
         "Tailwind CSS",
         "Bootstrap",
         "Material-UI",
+        "Shadcn UI",
+        "XML",
       ],
     },
     {
       id: 2,
       title: "Backend Development",
       icon: FiServer,
-      skills: [
-        "Node.js",
-        "Express.js",
-        "Python",
-        "Django",
-        "Flask",
-        "Java",
-        "Spring Boot",
-        "Ruby on Rails",
-        "PHP",
-        "Laravel",
-      ],
+      skills: ["Node.js", "Express.js", "Java", "Spring Boot", "PHP"],
     },
     {
       id: 3,
-      title: "Databases",
-      icon: FiDatabase,
+      title: "Tools & Technologies",
+      icon: FiCode,
       skills: [
-        "MySQL",
-        "PostgreSQL",
-        "MongoDB",
-        "Redis",
-        "Firebase",
-        "Oracle",
-        "SQL Server",
+        "Visual Studio Code",
+        "Eclipse",
+        "Windsurf IDE",
+        "Spring Tool Suite",
+        "NetBeans",
+        "IntelliJ IDEA",
+        "PyCharm",
+        "Android Studio",
+        "Edit Plus",
       ],
     },
     {
@@ -65,19 +55,15 @@ const Skills = () => {
     },
     {
       id: 5,
-      title: "Tools & Technologies",
+      title: "Databases",
+      icon: FiDatabase,
+      skills: ["MySQL", "PostgreSQL", "MongoDB", "Oracle", "SQL Server"],
+    },
+    {
+      id: 6,
+      title: "Cloud & APIs",
       icon: FiCode,
-      skills: [
-        "Docker",
-        "Kubernetes",
-        "AWS",
-        "Azure",
-        "Google Cloud",
-        "Jenkins",
-        "CI/CD",
-        "RESTful APIs",
-        "GraphQL",
-      ],
+      skills: ["Docker", "AWS", "RESTful APIs"],
     },
   ];
 
@@ -85,9 +71,9 @@ const Skills = () => {
     <section id="skills" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary flex items-center gap-4 justify-center mb-4">
+          <h2 className="text-4xl font-header text-primary flex items-center gap-4 justify-center mb-4">
             <FiCode className="w-10 h-10 text-primary" />
-            Technical Skills
+            <span className="hidden sm:inline">Technical</span> Skills
           </h2>
           <p className="text-text max-w-2xl mx-auto">
             A comprehensive set of technical skills and expertise
@@ -113,7 +99,7 @@ const Skills = () => {
                 {category.skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                    className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mx-0.5"
                   >
                     {skill}
                   </span>

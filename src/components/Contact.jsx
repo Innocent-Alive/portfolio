@@ -7,15 +7,85 @@ import {
   FaFacebook,
   FaTwitter,
   FaWhatsapp,
+  FaPaperPlane,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaCheck,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "c6e95106-1ee1-48e9-8b15-646fdb1f4402",
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: `Subject: ${formData.subject}\n\n Message: ${formData.message}`,
+          from_name: formData.name,
+          reply_to: formData.email,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSuccess(true);
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        // Reset success message after 5 seconds
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        setError(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to send message. Please try again later.");
+      console.error("Form submission error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const socialLinks = [
     {
       id: 1,
       name: "GitHub",
       icon: FaGithub,
-      url: "https://github.com/abhay744das",
+      url: "https://github.com/Innocent-Alive",
     },
     {
       id: 2,
@@ -27,7 +97,7 @@ const Contact = () => {
       id: 3,
       name: "Reddit",
       icon: FaReddit,
-      url: "https://reddit.com/u/abhay744das",
+      url: "https://www.reddit.com/user/Effective-Arrival335/",
     },
     {
       id: 4,
@@ -39,7 +109,7 @@ const Contact = () => {
       id: 5,
       name: "Facebook",
       icon: FaFacebook,
-      url: "https://facebook.com/abhay744das",
+      url: "https://www.facebook.com/TheInnocentAlive",
     },
     {
       id: 6,
@@ -57,9 +127,9 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl flex items-center justify-center gap-4 font-bold text-primary mb-4">
-            <MdOutlineEmojiEmotions className="w-10 h-10 text-primary" /> Let's
-            Connect
+          <h2 className="text-4xl flex items-center justify-center gap-4 font-header text-primary mb-4">
+            <MdOutlineEmojiEmotions className="w-10 h-10 text-primary" />{" "}
+            <span className="hidden sm:inline">Let's</span> Connect
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or
@@ -77,63 +147,21 @@ const Contact = () => {
               </h3>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <svg
-                    className="w-6 h-6 text-primary mr-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
+                  <FaEnvelope className="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="text-lg font-medium">Email</h4>
                     <p className="text-gray-600">abhay744das@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <svg
-                    className="w-6 h-6 text-primary mr-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
+                  <FaPhone className="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="text-lg font-medium">Phone</h4>
                     <p className="text-gray-600">+91 8169805273</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <svg
-                    className="w-6 h-6 text-primary mr-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
+                  <FaMapMarkerAlt className="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="text-lg font-medium">Location</h4>
                     <p className="text-gray-600">
@@ -148,16 +176,20 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-primary mb-4">
                 Social Links
               </h3>
-              <div className="flex justify-center space-x-8">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10">
                 {socialLinks.map((link) => (
                   <a
                     key={link.id}
                     href={link.url}
-                    className="text-primary hover:text-secondary transition-colors duration-300"
+                    className="text-primary hover:text-secondary transition-colors duration-300 group relative"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={link.name}
                   >
-                    <link.icon className="w-6 h-6 text-primary hover:text-secondary transition-transform duration-300 hover:scale-110" />
+                    <link.icon className="w-6 h-6 text-primary group-hover:text-secondary transition-all duration-300 group-hover:scale-110" />
+                    <span className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 text-xs text-gray-600 whitespace-nowrap transition-opacity duration-300">
+                      {link.name}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -167,17 +199,30 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-primary mb-4">
                 WhatsApp Me
               </h3>
-              <div className="flex items-center justify-center gap-4">
-                <a
+              <motion.div
+                className="flex items-center justify-center gap-4"
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <motion.a
                   href="https://wa.me/918169805273?text=Hi%20Abhay,%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect!"
-                  className="bg-primary hover:bg-secondary text-background px-6 py-3 rounded-lg flex items-center gap-2 transition-colors duration-300"
+                  className="flex justify-center w-full items-center gap-2 px-8 py-3 text-base font-medium text-white bg-primary hover:bg-secondary transition-all duration-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 5px 15px -5px rgba(99, 102, 241, 0.5)",
+                  }}
+                  whileTap={{
+                    scale: 0.98,
+                    boxShadow: "0 2px 5px -2px rgba(99, 102, 241, 0.5)",
+                  }}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaWhatsapp className="w-6 h-6" />
-                  Message on WhatsApp
-                </a>
-              </div>
+                  <span className="hidden sm:inline">Message on WhatsApp</span>
+                  <span className="inline sm:hidden">WhatsApp</span>
+                </motion.a>
+              </motion.div>
             </div>
           </div>
 
@@ -187,7 +232,7 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-primary mb-6">
                 Send Me a Message
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
                   <label
@@ -201,7 +246,10 @@ const Contact = () => {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                    value={formData.name}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 focus:outline-none shadow-sm hover:border-gray-300"
                     placeholder="Your Name"
                   />
                 </div>
@@ -219,7 +267,10 @@ const Contact = () => {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                    value={formData.email}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 shadow-sm hover:border-gray-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -237,7 +288,10 @@ const Contact = () => {
                     id="subject"
                     name="subject"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 shadow-sm hover:border-gray-300"
                     placeholder="Project Inquiry"
                   />
                 </div>
@@ -255,20 +309,73 @@ const Contact = () => {
                     name="message"
                     required
                     rows="3"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200 shadow-sm hover:border-gray-300"
                     placeholder="Tell me about your project..."
                   />
                 </div>
 
                 {/* Submit Button */}
-                <div className="flex justify-end">
-                  <button
+                <motion.div
+                  className="flex justify-end"
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <motion.button
                     type="submit"
-                    className="flex justify-center w-full items-center px-8 py-3 text-base font-medium text-white bg-primary hover:bg-secondary transition-colors duration-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    disabled={isSubmitting}
+                    className={`flex justify-center w-full items-center gap-2 px-8 py-3 text-base font-medium text-white ${
+                      isSubmitting
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-primary hover:bg-secondary"
+                    } transition-all duration-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
+                    whileHover={{
+                      scale: 1.02,
+                      boxShadow: "0 5px 15px -5px rgba(99, 102, 241, 0.5)",
+                    }}
+                    whileTap={{
+                      scale: 0.98,
+                      boxShadow: "0 2px 5px -2px rgba(99, 102, 241, 0.5)",
+                    }}
                   >
-                    Send Message
-                  </button>
-                </div>
+                    {isSubmitting ? (
+                      <div className="flex items-center gap-2">
+                        <div className="flex space-x-1">
+                          <div
+                            className="w-2 h-2 bg-white rounded-full animate-bounce"
+                            style={{ animationDelay: "0ms" }}
+                          ></div>
+                          <div
+                            className="w-2 h-2 bg-white rounded-full animate-bounce"
+                            style={{ animationDelay: "150ms" }}
+                          ></div>
+                          <div
+                            className="w-2 h-2 bg-white rounded-full animate-bounce"
+                            style={{ animationDelay: "300ms" }}
+                          ></div>
+                        </div>
+                        <span>Sending</span>
+                      </div>
+                    ) : isSuccess ? (
+                      <div className="flex items-center gap-2">
+                        <FaCheck className="w-4 h-4 text-white" />
+                        <span>Message Sent!</span>
+                      </div>
+                    ) : (
+                      <>
+                        <FaPaperPlane className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </motion.button>
+                  {error && (
+                    <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
+                      {error}
+                    </div>
+                  )}
+                </motion.div>
               </form>
             </div>
           </div>

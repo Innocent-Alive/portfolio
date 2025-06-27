@@ -8,6 +8,7 @@ import {
   FiLayers,
   FiSend,
 } from "react-icons/fi";
+import logo from "../assets/logoBlack.png";
 
 const Navbar = () => {
   const navLinks = [
@@ -29,9 +30,10 @@ const Navbar = () => {
             <div className="flex-shrink-0">
               <a
                 href="#"
-                className="text-2xl font-bold text-primary text-center flex items-center gap-2"
+                className="text-2xl font-header outline-none text-primary text-center flex items-center gap-2"
               >
-                Abhay Kumar Das
+                <img src={logo} alt="Logo" className="h-10 w-auto" />
+                <span>Abhay Kumar Das</span>
               </a>
             </div>
 
@@ -40,7 +42,7 @@ const Navbar = () => {
                 <a
                   key={link.id}
                   href={link.href}
-                  className="flex items-center gap-2 group relative text-gray-600 hover:text-primary transition-all duration-300"
+                  className="flex items-center gap-2 group relative outline-none text-gray-600 hover:text-primary transition-all duration-300"
                 >
                   <link.icon className="w-5 h-5 text-primary transition-transform duration-300 group-hover:scale-110" />
                   <span className="relative">
