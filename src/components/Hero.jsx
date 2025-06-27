@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FiSend } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
-import heroImage from '../assets/heroImage.png';
+import heroImage from "../assets/heroImage.png";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -24,8 +24,8 @@ const Hero = () => {
       viewport={{ once: true }}
     >
       {/* Background Pattern */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20" 
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
 
@@ -56,7 +56,7 @@ const Hero = () => {
             <FaGithub className="w-8 h-8" />
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.linkedin.com/in/innocent-alive/"
             className="text-primary hover:text-secondary transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -65,7 +65,7 @@ const Hero = () => {
             <FaLinkedin className="w-8 h-8" />
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.facebook.com/TheInnocentAlive"
             className="text-primary hover:text-secondary transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}

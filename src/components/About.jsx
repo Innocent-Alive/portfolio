@@ -77,7 +77,7 @@ const About = () => (
             Abhay Kumar Das
           </motion.h3>
           <motion.p className="text-xl text-text mb-8" variants={fadeInUp}>
-            Full Stack Developer & Tech Enthusiast
+            Full Stack Developer & Android Developer
           </motion.p>
 
           {/* Contact Info */}

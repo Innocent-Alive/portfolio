@@ -28,7 +28,7 @@ const Footer = () => {
       whileInView="animate"
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto px-4 pb-20 pt-10">
+      <div className="max-w-7xl mx-auto px-4 pb-20 lg:pb-10 pt-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
           <motion.div className="space-y-2" variants={fadeIn}>
@@ -121,6 +121,23 @@ const Footer = () => {
                   </span>
                   <span className="group-hover:translate-x-2 transition-transform duration-300">
                     Contact
+                  </span>
+                </a>
+              </motion.li>
+              <motion.li
+                variants={fadeInUp}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <a
+                  href="#experience"
+                  className="relative text-gray-600 hover:text-primary transition-all duration-300 group"
+                >
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    →
+                  </span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">
+                    Experience
                   </span>
                 </a>
               </motion.li>

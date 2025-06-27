@@ -7,7 +7,7 @@ const Projects = () => {
     {
       title: "EcoStore Web App",
       description:
-        "A full-stack e-commerce platform with user authentication, product management, and payment integration.",
+        "A full-stack e-commerce platform with user authentication, product management, and payment integration for eco products.",
       tech: ["React", "Node.js", "MongoDB", "Tailwind"],
       image: project1,
       link: "https://ecostoreonline.onrender.com/",
@@ -15,7 +15,7 @@ const Projects = () => {
     {
       title: "Microsoft Clone",
       description:
-        "A modern portfolio website built with React and Tailwind CSS, featuring a responsive design and smooth animations.",
+        "A Microsoft clone website built with vanilla HTML, CSS and JavaScript, featuring a responsive design and smooth animations.",
       tech: ["HTML", "CSS", "JavaScript"],
       image: project2,
       link: "https://microsoft-clone-steel-delta.vercel.app/",
@@ -23,7 +23,7 @@ const Projects = () => {
     {
       title: "Android Calculator App",
       description:
-        "A real-time task management application with drag-and-drop functionality and team collaboration features.",
+        "A calculator application built with Java and XML in android studio with basic operations functionality.",
       tech: ["Java", "Android", "XML"],
       image: project3,
       link: "https://github.com/Innocent-Alive/Android_Calculator",
