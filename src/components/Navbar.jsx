@@ -42,7 +42,7 @@ const Navbar = () => {
                 <a
                   key={link.id}
                   href={link.href}
-                  className="flex items-center gap-2 group relative outline-none text-gray-600 hover:text-primary transition-all duration-300"
+                  className="flex items-center font-light md:font-semibold gap-2 group relative outline-none text-gray-600 md:text-gray-800 hover:text-primary transition-all duration-300"
                 >
                   <link.icon className="w-5 h-5 text-primary transition-transform duration-300 group-hover:scale-110" />
                   <span className="relative">
@@ -71,7 +71,7 @@ const Navbar = () => {
               <a
                 key={link.id}
                 href={link.href}
-                className="flex flex-col items-center justify-center text-gray-600 hover:text-primary transition-all duration-300"
+                className="flex flex-col items-center justify-center text-gray-700 hover:text-primary transition-all duration-300"
               >
                 <link.icon className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                 <span className="text-xs relative">

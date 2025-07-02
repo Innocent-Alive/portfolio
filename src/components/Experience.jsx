@@ -1,3 +1,4 @@
+import { AiOutlineCheckCircle } from "react-icons/ai";
 import { FiBriefcase } from "react-icons/fi";
 
 const Experience = () => {
@@ -64,7 +65,9 @@ const Experience = () => {
               <div className="space-y-2">
                 {exp.highlights.map((highlight, index) => (
                   <p key={index} className="text-text flex items-center">
-                    <span className="text-primary mr-2">•</span>
+                    <span className="text-primary mr-2">
+                      <AiOutlineCheckCircle />
+                    </span>
                     {highlight}
                   </p>
                 ))}
