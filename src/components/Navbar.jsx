@@ -53,7 +53,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#contact"
-                className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors duration-300 font-medium flex items-center gap-2 group"
+                className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium flex items-center gap-2 group"
               >
                 <FiSend className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 <span>Hire Now</span>

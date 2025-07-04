@@ -32,7 +32,7 @@ const Hero = () => {
       {/* Content */}
       <motion.div className="relative text-center px-4" variants={fadeIn}>
         <motion.h1
-          className="text-5xl md:text-7xl text-primary mb-6 font-header"
+          className="text-5xl md:text-7xl text-primary mb-6 font-header font-light"
           variants={fadeInUp}
         >
           Hi, I'm Abhay Kumar Das

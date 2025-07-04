@@ -71,7 +71,7 @@ const About = () => (
         {/* Profile Content */}
         <motion.div className="space-y-6" variants={fadeIn}>
           <motion.h3
-            className="text-3xl font-bold text-primary mb-6"
+            className="text-3xl font-medium font-header text-primary mb-6"
             variants={fadeInUp}
           >
             Abhay Kumar Das

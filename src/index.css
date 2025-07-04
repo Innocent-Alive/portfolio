@@ -1,14 +1,14 @@
 @import "tailwindcss";
 @font-face {
-  font-family: 'Audiowide';
-  src: url('./assets/Audiowide-Regular.ttf');
+  font-family: 'Header';
+  src: url('./assets/Header.ttf');
 }
 @font-face {
-  font-family: 'Urbanist';
-  src: url('./assets/Urbanist-VariableFont_wght.ttf');
+  font-family: 'Body';
+  src: url('./assets/Body.ttf');
 }
 @font-face {
-  font-family: 'Urbanist-Italic';
+  font-family: 'Super';
   src: url('./assets/Urbanist-Italic.ttf');
 }
 
@@ -18,9 +18,9 @@
   --color-accent: #30343f;
   --color-background: #e6e8e6;
   --color-text: #0a100d;
-  --font-header: 'Audiowide', sans-serif;
-  --font-body: 'Urbanist', sans-serif;
-  --font-italic: 'Urbanist-Italic', sans-serif;
+  --font-header: 'Header', sans-serif;
+  --font-body: 'Body', sans-serif;
+  --font-italic: 'Super', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -34,6 +34,11 @@
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: 4px;
+}
+
+::selection{
+  background-color: var(--color-primary);
+  color: var(--color-background);
 }
 
 html {

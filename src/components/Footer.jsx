@@ -194,7 +194,7 @@ const Footer = () => {
       {/* Floating Back to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className="hidden lg:block lg:fixed bottom-6 right-6 z-50 p-2 bg-primary rounded-full shadow-lg hover:bg-primary/90 transition-colors duration-200"
+        className="hidden lg:block lg:fixed bottom-6 right-6 z-50 p-2 bg-primary rounded-lg shadow-lg hover:bg-primary/90 transition-colors duration-200"
         title="Scroll to Top"
         variants={fadeInUp}
       >
