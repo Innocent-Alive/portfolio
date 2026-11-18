@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import logo from "../assets/logoBlack.png";
 
@@ -6,6 +6,11 @@ const Loader = ({ onComplete }) => {
   const containerRef = useRef(null);
   const logoRef = useRef(null);
   const textRef = useRef(null);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -64,14 +69,14 @@ const Loader = ({ onComplete }) => {
       duration: 0.35,
       ease: "power2.inOut",
       onComplete: () => {
-        if (onComplete) onComplete();
+        if (onCompleteRef.current) onCompleteRef.current();
       },
     });
 
     return () => {
       tl.kill();
     };
-  }, [onComplete]);
+  }, []);
 
   return (
     <div

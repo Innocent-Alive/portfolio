@@ -1,5 +1,4 @@
-import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import { MdOutlineWorkspaces } from "react-icons/md";
+import { useLayoutEffect, useRef } from "react";
 import { FiChevronLeft, FiChevronRight, FiGithub, FiExternalLink } from "react-icons/fi";
 import project1 from "../assets/ecostore.png";
 import project2 from "../assets/microsoft.png";
@@ -76,63 +75,102 @@ const Projects = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const getScrollDistance = () => {
-        if (!sectionRef.current) return 1000;
-        return Math.max(0, sectionRef.current.scrollWidth - window.innerWidth);
-      };
+      // Header Animation
+      gsap.fromTo(
+        ".projects-title",
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            refreshPriority: 5,
+          },
+        }
+      );
 
-      gsap.to(sectionRef.current, {
-        x: () => -getScrollDistance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          pin: true,
-          scrub: 1,
-          start: "top top",
-          end: () => `+=${getScrollDistance()}`,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        },
+      const mm = gsap.matchMedia();
+
+      // DESKTOP (lg screens >= 1024px): Pinned Horizontal Scroll
+      mm.add("(min-width: 1024px)", () => {
+        const getScrollDistance = () => {
+          if (!sectionRef.current) return 1000;
+          return Math.max(0, sectionRef.current.scrollWidth - window.innerWidth + 100);
+        };
+
+        gsap.to(sectionRef.current, {
+          x: () => -getScrollDistance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            pin: true,
+            scrub: 1,
+            start: "top top",
+            end: () => `+=${getScrollDistance()}`,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            refreshPriority: 5,
+          },
+        });
       });
 
-      gsap.from(".projects-title", {
-        scrollTrigger: {
-          trigger: ".projects-title",
-          start: "top 85%",
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
+      // TABLET & MOBILE (< 1024px): Native smooth horizontal swipe without locking vertical scroll
+      mm.add("(max-width: 1023px)", () => {
+        if (sectionRef.current) {
+          gsap.set(sectionRef.current, { x: 0 });
+        }
       });
     }, triggerRef);
 
-    return () => ctx.revert();
+    // Ensure ScrollTrigger refreshes when images finish loading
+    const handleLoad = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("load", handleLoad);
+
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 250);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      clearTimeout(refreshTimer);
+      ctx.revert();
+    };
   }, [projects.length]);
 
   return (
     <div ref={triggerRef} className="overflow-hidden bg-background">
       <section
         id="projects"
-        className="pt-4 pb-4 md:pt-6 md:pb-6 border-b-4 border-primary bg-news-dots relative"
+        className="min-h-screen flex flex-col justify-center py-12 md:py-16 border-b-4 border-primary bg-news-dots relative"
       >
-        <div className="container mx-auto px-4 mb-4">
+        <div className="container mx-auto px-4 mb-8">
           {/* Page Header */}
-          <div className="flex justify-between items-end border-b-2 border-primary pb-2 projects-title">
+          <div className="flex justify-between items-end border-b-2 border-primary pb-3 projects-title">
             <h2 className="headline-serif text-3xl md:text-5xl font-black uppercase tracking-tighter text-primary">
               Latest Insights
             </h2>
-            <span className="uppercase-label text-muted-text hidden md:block underline font-black">
-              ARCHIVES / {new Date().getFullYear()} EDITION
-            </span>
+            <div className="flex items-center gap-4">
+              <span className="lg:hidden mono-data text-[0.6rem] font-bold text-accent animate-pulse">
+                SWIPE HORIZONTALLY →
+              </span>
+            </div>
           </div>
         </div>
 
-        <div ref={sectionRef} className="flex gap-8 px-4 md:px-[5vw]">
+        <div 
+          ref={sectionRef} 
+          className="flex gap-8 px-4 md:px-[5vw] overflow-x-auto lg:overflow-x-visible pb-4 snap-x snap-mandatory lg:snap-none"
+        >
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="group flex flex-col shrink-0 w-[85vw] md:w-[420px] pb-2"
+              className="group flex flex-col shrink-0 w-[85vw] sm:w-[380px] lg:w-[420px] pb-2 snap-start"
             >
               {/* Project Image with Silky Smooth Hover Transition */}
               <div className="border-4 border-primary p-1.5 mb-3 bg-white overflow-hidden shadow-[5px_5px_0px_0px_rgba(17,17,17,1)] group-hover:shadow-[8px_8px_0px_0px_rgba(204,0,0,1)] transition-all duration-500 ease-out">
@@ -141,6 +179,7 @@ const Projects = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full aspect-video object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    onLoad={() => ScrollTrigger.refresh()}
                   />
                 </div>
               </div>

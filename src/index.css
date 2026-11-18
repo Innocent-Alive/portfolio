@@ -84,6 +84,9 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  background-image: radial-gradient(rgba(17, 17, 17, 0.065) 0.8px, transparent 0.8px);
+  background-size: 6px 6px;
 }
 
 
@@ -169,6 +172,15 @@ select:autofill:focus {
 
 .animate-marquee {
   animation: marquee 65s linear infinite;
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 75s linear infinite;
 }
 
 .pause-animation {
